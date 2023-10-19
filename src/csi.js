@@ -82,351 +82,353 @@ class CsiDate extends Date {
 }
 
 (function (a) {
-  "use strict";
-  for (
-    var w = a("<div>").css({
-        "box-sizing": "border-box",
-        margin: "0px",
-        padding: "0px",
-        position: "relative",
-        "vertical-align": "top",
-      }),
-      A = a("<span>").css({
-        "box-sizing": "border-box",
-        display: "inline-block",
-        "line-height": "30px",
-        margin: "0px",
-        padding: "0px 5px",
-        "vertical-align": "top",
-      }),
-      y = a("<button>").css({
-        "background-color": "transparent",
-        border: "none",
-        "border-radius": "3px",
-        "box-sizing": "border-box",
-        color: "#FFFFFF",
-        cursor: "pointer",
-        "font-size": "13px",
-        height: "30px",
-        "line-height": "30px",
-        margin: "0px 3px",
-        outline: "none",
-        padding: "0px 1em",
-        "vertical-align": "top",
-        width: "auto",
-      }),
-      C = a("<td>").css({
-        border: "1px solid #C9C9C9",
-        cursor: "pointer",
-      }),
-      G = a("<label>")
-        .css({
+  /*
+    for (
+      var w = a("<div>").css({
+          "box-sizing": "border-box",
+          margin: "0px",
+          padding: "0px",
+          position: "relative",
+          "vertical-align": "top",
+        }),
+        A = a("<span>").css({
           "box-sizing": "border-box",
           display: "inline-block",
           "line-height": "30px",
           margin: "0px",
-          padding: "0px",
+          padding: "0px 5px",
           "vertical-align": "top",
-        })
-        .append(a('<input type="checkbox" class="receiver">'))
-        .append(
-          A.clone(!0).addClass("label").css({
-            padding: "0px 10px 0px 5px",
-          })
-        ),
-      L = a("<label>")
-        .css({
+        }),
+        y = a("<button>").css({
+          "background-color": "transparent",
+          border: "none",
+          "border-radius": "3px",
           "box-sizing": "border-box",
-          display: "inline-block",
+          color: "#FFFFFF",
+          cursor: "pointer",
+          "font-size": "13px",
+          height: "30px",
           "line-height": "30px",
-          margin: "0px",
-          padding: "0px",
+          margin: "0px 3px",
+          outline: "none",
+          padding: "0px 1em",
           "vertical-align": "top",
-        })
-        .append(a('<input type="radio" class="receiver">'))
-        .append(
-          A.clone(!0).addClass("label").css({
-            padding: "0px 10px 0px 5px",
+          width: "auto",
+        }),
+        C = a("<td>").css({
+          border: "1px solid #C9C9C9",
+          cursor: "pointer",
+        }),
+        G = a("<label>")
+          .css({
+            "box-sizing": "border-box",
+            display: "inline-block",
+            "line-height": "30px",
+            margin: "0px",
+            padding: "0px",
+            "vertical-align": "top",
           })
-        ),
-      H = w
-        .clone(!0)
-        .css({
-          display: "inline-block",
-          "line-height": "30px",
-          width: "100%",
-        })
-        .append(
-          A.clone(!0).addClass("label").css({
-            overflow: "hidden",
-            "padding-left": "70px",
-            "text-overflow": "ellipsis",
-            "white-space": "nowrap",
+          .append(a('<input type="checkbox" class="receiver">'))
+          .append(
+            A.clone(!0).addClass("label").css({
+              padding: "0px 10px 0px 5px",
+            })
+          ),
+        L = a("<label>")
+          .css({
+            "box-sizing": "border-box",
+            display: "inline-block",
+            "line-height": "30px",
+            margin: "0px",
+            padding: "0px",
+            "vertical-align": "top",
+          })
+          .append(a('<input type="radio" class="receiver">'))
+          .append(
+            A.clone(!0).addClass("label").css({
+              padding: "0px 10px 0px 5px",
+            })
+          ),
+        H = w
+          .clone(!0)
+          .css({
+            display: "inline-block",
+            "line-height": "30px",
             width: "100%",
           })
-        )
-        .append(a('<input type="hidden" class="receiver">'))
-        .append(a('<input type="hidden" class="key">'))
-        .append(a('<input type="hidden" class="picker">'))
-        .append(
-          y
-            .clone(!0)
-            .addClass("search")
-            .css({
-              left: "0px",
-              margin: "0px",
-              padding: "0px",
-              position: "absolute",
-              top: "0px",
-              width: "30px",
-            })
-            .append(
-              a(
-                '<img src="https://cdn.jsdelivr.net/gh/TIS2010/static@latest/kintone/images/search.png">'
-              ).css({
-                width: "100%",
-              })
-            )
-        )
-        .append(
-          y
-            .clone(!0)
-            .addClass("clear")
-            .css({
-              left: "35px",
-              margin: "0px",
-              padding: "0px",
-              position: "absolute",
-              top: "0px",
-              width: "30px",
-            })
-            .append(
-              a(
-                '<img src="https://cdn.jsdelivr.net/gh/TIS2010/static@latest/kintone/images/close.png">'
-              ).css({
-                width: "100%",
-              })
-            )
-        ),
-      O = a("<select>").css({
-        border: "1px solid #C9C9C9",
-        "border-radius": "3px",
-        "box-sizing": "border-box",
-        display: "inline-block",
-        height: "30px",
-        "line-height": "30px",
-        margin: "0px",
-        padding: "0px 5px",
-        "vertical-align": "top",
-        width: "auto",
-      }),
-      T = a("<textarea>").css({
-        border: "1px solid #C9C9C9",
-        "border-radius": "3px",
-        "box-sizing": "border-box",
-        display: "block",
-        height: "calc(7.5em + 10px)",
-        "line-height": "1.5em",
-        padding: "5px",
-        "vertical-align": "top",
-        width: "100%",
-      }),
-      M = a('<input type="text">').css({
-        border: "1px solid #C9C9C9",
-        "border-radius": "3px",
-        "box-sizing": "border-box",
-        display: "inline-block",
-        height: "30px",
-        "line-height": "30px",
-        padding: "0px 5px",
-        "vertical-align": "top",
-        width: "100%",
-      }),
-      Q = w
-        .clone(!0)
-        .css({
-          display: "inline-block",
-          "line-height": "30px",
-        })
-        .append(O.clone(!0).addClass("receiverhour"))
-        .append(A.clone(!0).text("\uff1a"))
-        .append(O.clone(!0).addClass("receiverminute")),
-      R = 0;
-    R < 24;
-    R++
-  )
-    a(".receiverhour", Q).append(
-      a("<option>")
-        .attr("value", ("0" + R.toString()).slice(-2))
-        .text(("0" + R.toString()).slice(-2))
-    );
-  for (R = 0; R < 60; R++)
-    a(".receiverminute", Q).append(
-      a("<option>")
-        .attr("value", ("0" + R.toString()).slice(-2))
-        .text(("0" + R.toString()).slice(-2))
-    );
-  var V = a('<label class="title">').css({
-      "box-sizing": "border-box",
-      "border-left": "5px solid #3498db",
-      display: "block",
-      "line-height": "25px",
-      margin: "5px 0px",
-      padding: "0px",
-      "padding-left": "5px",
-    }),
-    U = {},
-    P = function (d, p, c) {
-      var b = {};
-      switch (d) {
-        case "standard":
-          b = {
-            cover: w.clone(!0).css({
-              "background-color": "rgba(0,0,0,0.5)",
-              display: "none",
-              height: "100%",
-              left: "0px",
-              position: "fixed",
-              top: "0px",
+          .append(
+            A.clone(!0).addClass("label").css({
+              overflow: "hidden",
+              "padding-left": "70px",
+              "text-overflow": "ellipsis",
+              "white-space": "nowrap",
               width: "100%",
-              "z-index": "999999",
-            }),
-            container: w.clone(!0).css({
-              "background-color": "#FFFFFF",
-              bottom: "0",
-              "border-radius": "5px",
-              "box-shadow": "0px 0px 3px rgba(0,0,0,0.35)",
-              height: p + "px",
-              left: "0",
-              margin: "auto",
-              "max-height": "calc(100% - 1em)",
-              "max-width": "calc(100% - 1em)",
-              padding: "5px 5px 40px 5px",
-              position: "absolute",
-              right: "0",
-              top: "0",
-              width: c + "px",
-            }),
-            contents: w.clone(!0).css({
-              height: "100%",
-              margin: "0px",
-              overflow: "auto",
-              padding: "5px 5px 10px 5px",
-              position: "relative",
-              "text-align": "left",
-              width: "100%",
-              "z-index": "1",
-            }),
-            header: w
+            })
+          )
+          .append(a('<input type="hidden" class="receiver">'))
+          .append(a('<input type="hidden" class="key">'))
+          .append(a('<input type="hidden" class="picker">'))
+          .append(
+            y
               .clone(!0)
+              .addClass("search")
               .css({
+                left: "0px",
+                margin: "0px",
+                padding: "0px",
+                position: "absolute",
+                top: "0px",
+                width: "30px",
+              })
+              .append(
+                a(
+                  '<img src="https://cdn.jsdelivr.net/gh/TIS2010/static@latest/kintone/images/search.png">'
+                ).css({
+                  width: "100%",
+                })
+              )
+          )
+          .append(
+            y
+              .clone(!0)
+              .addClass("clear")
+              .css({
+                left: "35px",
+                margin: "0px",
+                padding: "0px",
+                position: "absolute",
+                top: "0px",
+                width: "30px",
+              })
+              .append(
+                a(
+                  '<img src="https://cdn.jsdelivr.net/gh/TIS2010/static@latest/kintone/images/close.png">'
+                ).css({
+                  width: "100%",
+                })
+              )
+          ),
+        O = a("<select>").css({
+          border: "1px solid #C9C9C9",
+          "border-radius": "3px",
+          "box-sizing": "border-box",
+          display: "inline-block",
+          height: "30px",
+          "line-height": "30px",
+          margin: "0px",
+          padding: "0px 5px",
+          "vertical-align": "top",
+          width: "auto",
+        }),
+        T = a("<textarea>").css({
+          border: "1px solid #C9C9C9",
+          "border-radius": "3px",
+          "box-sizing": "border-box",
+          display: "block",
+          height: "calc(7.5em + 10px)",
+          "line-height": "1.5em",
+          padding: "5px",
+          "vertical-align": "top",
+          width: "100%",
+        }),
+        M = a('<input type="text">').css({
+          border: "1px solid #C9C9C9",
+          "border-radius": "3px",
+          "box-sizing": "border-box",
+          display: "inline-block",
+          height: "30px",
+          "line-height": "30px",
+          padding: "0px 5px",
+          "vertical-align": "top",
+          width: "100%",
+        }),
+        Q = w
+          .clone(!0)
+          .css({
+            display: "inline-block",
+            "line-height": "30px",
+          })
+          .append(O.clone(!0).addClass("receiverhour"))
+          .append(A.clone(!0).text("\uff1a"))
+          .append(O.clone(!0).addClass("receiverminute")),
+        R = 0;
+      R < 24;
+      R++
+    )
+      a(".receiverhour", Q).append(
+        a("<option>")
+          .attr("value", ("0" + R.toString()).slice(-2))
+          .text(("0" + R.toString()).slice(-2))
+      );
+    for (R = 0; R < 60; R++)
+      a(".receiverminute", Q).append(
+        a("<option>")
+          .attr("value", ("0" + R.toString()).slice(-2))
+          .text(("0" + R.toString()).slice(-2))
+      );
+    var V = a('<label class="title">').css({
+        "box-sizing": "border-box",
+        "border-left": "5px solid #3498db",
+        display: "block",
+        "line-height": "25px",
+        margin: "5px 0px",
+        padding: "0px",
+        "padding-left": "5px",
+      }),
+      U = {},
+      P = function (d, p, c) {
+        var b = {};
+        switch (d) {
+          case "standard":
+            b = {
+              cover: w.clone(!0).css({
+                "background-color": "rgba(0,0,0,0.5)",
+                display: "none",
+                height: "100%",
+                left: "0px",
+                position: "fixed",
+                top: "0px",
+                width: "100%",
+                "z-index": "999999",
+              }),
+              container: w.clone(!0).css({
+                "background-color": "#FFFFFF",
+                bottom: "0",
+                "border-radius": "5px",
+                "box-shadow": "0px 0px 3px rgba(0,0,0,0.35)",
+                height: p + "px",
+                left: "0",
+                margin: "auto",
+                "max-height": "calc(100% - 1em)",
+                "max-width": "calc(100% - 1em)",
+                padding: "5px 5px 40px 5px",
+                position: "absolute",
+                right: "0",
+                top: "0",
+                width: c + "px",
+              }),
+              contents: w.clone(!0).css({
+                height: "100%",
+                margin: "0px",
+                overflow: "auto",
+                padding: "5px 5px 10px 5px",
+                position: "relative",
+                "text-align": "left",
+                width: "100%",
+                "z-index": "1",
+              }),
+              header: w
+                .clone(!0)
+                .css({
+                  "background-color": "#3498db",
+                  "border-top-left-radius": "5px",
+                  "border-top-right-radius": "5px",
+                  left: "0px",
+                  padding: "5px",
+                  position: "absolute",
+                  "text-align": "left",
+                  top: "0px",
+                  width: "100%",
+                  "z-index": "3",
+                })
+                .append(
+                  w
+                    .clone(!0)
+                    .css({
+                      display: "inline-block",
+                      "vertical-align": "top",
+                      width: "100%",
+                    })
+                    .addClass("main")
+                )
+                .append(
+                  w
+                    .clone(!0)
+                    .css({
+                      display: "inline-block",
+                      "vertical-align": "top",
+                      width: "0px",
+                    })
+                    .addClass("sub")
+                ),
+              footer: w.clone(!0).css({
                 "background-color": "#3498db",
-                "border-top-left-radius": "5px",
-                "border-top-right-radius": "5px",
+                "border-bottom-left-radius": "5px",
+                "border-bottom-right-radius": "5px",
+                bottom: "0px",
                 left: "0px",
                 padding: "5px",
                 position: "absolute",
-                "text-align": "left",
-                top: "0px",
+                "text-align": "center",
                 width: "100%",
                 "z-index": "3",
-              })
-              .append(
-                w
-                  .clone(!0)
-                  .css({
-                    display: "inline-block",
-                    "vertical-align": "top",
-                    width: "100%",
-                  })
-                  .addClass("main")
-              )
-              .append(
-                w
-                  .clone(!0)
-                  .css({
-                    display: "inline-block",
-                    "vertical-align": "top",
-                    width: "0px",
-                  })
-                  .addClass("sub")
-              ),
-            footer: w.clone(!0).css({
-              "background-color": "#3498db",
-              "border-bottom-left-radius": "5px",
-              "border-bottom-right-radius": "5px",
-              bottom: "0px",
-              left: "0px",
-              padding: "5px",
-              position: "absolute",
-              "text-align": "center",
-              width: "100%",
-              "z-index": "3",
-            }),
-            lists: a("<table>")
-              .css({
+              }),
+              lists: a("<table>")
+                .css({
+                  "box-sizing": "border-box",
+                  width: "100%",
+                })
+                .append(a("<tbody>")),
+            };
+            break;
+          case "dark":
+            b = {
+              button: a("<img>").css({
+                "background-color": "transparent",
+                border: "none",
+                "border-radius": "50%",
                 "box-sizing": "border-box",
+                cursor: "pointer",
+                display: "inline-block",
+                height: "3em",
+                margin: "0px",
+                "vertical-align": "top",
+                width: "3em",
+              }),
+              cover: w.clone(!0).css({
+                "background-color": "rgba(0,0,0,0.5)",
+                display: "none",
+                height: "100%",
+                left: "0px",
+                position: "fixed",
+                top: "0px",
                 width: "100%",
-              })
-              .append(a("<tbody>")),
-          };
-          break;
-        case "dark":
-          b = {
-            button: a("<img>").css({
-              "background-color": "transparent",
-              border: "none",
-              "border-radius": "50%",
-              "box-sizing": "border-box",
-              cursor: "pointer",
-              display: "inline-block",
-              height: "3em",
-              margin: "0px",
-              "vertical-align": "top",
-              width: "3em",
-            }),
-            cover: w.clone(!0).css({
-              "background-color": "rgba(0,0,0,0.5)",
-              display: "none",
-              height: "100%",
-              left: "0px",
-              position: "fixed",
-              top: "0px",
-              width: "100%",
-              "z-index": "999999",
-            }),
-            container: w.clone(!0).css({
-              "background-color": "rgba(0,0,0,0.5)",
-              bottom: "0",
-              "border-radius": "1em",
-              "box-shadow": "0px 0px 3px rgba(0,0,0,0.35)",
-              height: "calc(100% - 2em)",
-              left: "0",
-              margin: "auto",
-              padding: "0.5em 1em 1em 1em",
-              position: "absolute",
-              right: "0",
-              top: "0",
-              width: "calc(100% - 2em)",
-            }),
-            contents: w.clone(!0).css({
-              height: "calc(100% - 3.5em)",
-              "margin-top": "0.5em",
-              padding: "0",
-              position: "relative",
-              "text-align": "center",
-              width: "100%",
-            }),
-            header: w.clone(!0).css({
-              margin: "0",
-              padding: "0",
-              "text-align": "right",
-              width: "100%",
-            }),
-          };
-      }
-      return b;
-    };
+                "z-index": "999999",
+              }),
+              container: w.clone(!0).css({
+                "background-color": "rgba(0,0,0,0.5)",
+                bottom: "0",
+                "border-radius": "1em",
+                "box-shadow": "0px 0px 3px rgba(0,0,0,0.35)",
+                height: "calc(100% - 2em)",
+                left: "0",
+                margin: "auto",
+                padding: "0.5em 1em 1em 1em",
+                position: "absolute",
+                right: "0",
+                top: "0",
+                width: "calc(100% - 2em)",
+              }),
+              contents: w.clone(!0).css({
+                height: "calc(100% - 3.5em)",
+                "margin-top": "0.5em",
+                padding: "0",
+                position: "relative",
+                "text-align": "center",
+                width: "100%",
+              }),
+              header: w.clone(!0).css({
+                margin: "0",
+                padding: "0",
+                "text-align": "right",
+                width: "100%",
+              }),
+            };
+        }
+        return b;
+      };
+*/
+/*
   jCsi.fn.thumbnailbrowser = function (d) {
     var p = function (c) {
       c = a.extend(
@@ -436,6 +438,8 @@ class CsiDate extends Date {
         },
         c
       );
+*/
+      /*
       var b = this;
       this.active = 0;
       this.thumbnails = [];
@@ -519,7 +523,9 @@ class CsiDate extends Date {
             )
         )
       );
-    };
+*/
+/*
+};
     p.prototype = {
       show: function (c, b, f) {
         var e = this,
@@ -588,6 +594,8 @@ class CsiDate extends Date {
       .attr("type", "text/css")
       .text("*.swalTis-overlay{z-index:1000000;}")
   );
+*/
+/*
   a(".kintoneplugin-row").length &&
     (a(".kintoneplugin-tab-container").length &&
       (function (d) {
@@ -608,8 +616,9 @@ class CsiDate extends Date {
         .attr("type", "text/css")
         .text("kintoneplugin-table{border-collapse:collapse;}")
     ));
-  window.tis_authorize_handler ||
-    (window.tis_authorize_handler = function (d) {
+*/
+    window.csi_authorize_handler ||
+    (window.csi_authorize_handler = function (d) {
       if (localStorage.getItem("csi-plugins-installdate")) {
         if (
           new CsiDate(
@@ -625,12 +634,12 @@ class CsiDate extends Date {
                 )
               : new CsiDate().calc("-1 day").format("Y-m-d");
           /*
-          a(".csi-plugins-information-dialog-button").length || c == new CsiDate().format("Y-m-d") || ((c = null),
-            localStorage.getItem("csi-plugins-displaytime-" + kintone.app.getId()) ? (c = parseInt(localStorage.getItem("csi-plugins-displaytime-" + kintone.app.getId()))) : ((c = new CsiDate().getHours()), (c = c < 15 ? Math.floor(Math.random() * (15 - c)) + c : c - 1), localStorage.setItem("csi-plugins-displaytime-" + kintone.app.getId(), c.toString())),
-            new CsiDate().getHours() > c &&
-              (localStorage.setItem("csi-plugins-displaydate-" + kintone.app.getId(), new CsiDate().format("Y-m-d")),
-              localStorage.removeItem("csi-plugins-displaytime-" + kintone.app.getId()),
-          */
+            a(".csi-plugins-information-dialog-button").length || c == new CsiDate().format("Y-m-d") || ((c = null),
+              localStorage.getItem("csi-plugins-displaytime-" + kintone.app.getId()) ? (c = parseInt(localStorage.getItem("csi-plugins-displaytime-" + kintone.app.getId()))) : ((c = new CsiDate().getHours()), (c = c < 15 ? Math.floor(Math.random() * (15 - c)) + c : c - 1), localStorage.setItem("csi-plugins-displaytime-" + kintone.app.getId(), c.toString())),
+              new CsiDate().getHours() > c &&
+                (localStorage.setItem("csi-plugins-displaydate-" + kintone.app.getId(), new CsiDate().format("Y-m-d")),
+                localStorage.removeItem("csi-plugins-displaytime-" + kintone.app.getId()),
+            */
           fetch("https://api.kintone-booster.com/authorize?id=" + p, {
             method: "GET",
             headers: {
@@ -776,6 +785,6 @@ class CsiDate extends Date {
         );
       return d;
     });
-  kintone.events.off("app.record.index.show", window.tis_authorize_handler);
-  kintone.events.on("app.record.index.show", window.tis_authorize_handler);
+  kintone.events.off("app.record.index.show", window.csi_authorize_handler);
+  kintone.events.on("app.record.index.show", window.csi_authorize_handler);
 })(jCsi);
