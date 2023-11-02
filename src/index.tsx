@@ -6,19 +6,18 @@
  *
  * -------------------------------------------------------------------
  */
-
-(function (jcsi) {
+ (function (jcsi: typeof jCsi) {
   // check existing handler
   if (!window.csi_authorize_handler) {
-    window.csi_authorize_handler = function () {
+    window.csi_authorize_handler = function (event: any) {
       // check plugin-install-date
       const installDate = localStorage.getItem("csi-plugins-installdate");
 
       if (installDate) {
         // check 1 month after installation
         let evaluateDate = new Date(installDate);
-
-        if (evaluateDate.setMonth(evaluateDate.getMonth() + 1) < new Date()) {
+        evaluateDate.setMonth(evaluateDate.getMonth() + 1);
+        if (evaluateDate < new Date()) {
           // check displayed date
           let displayDate = localStorage.getItem(
             "csi-plugins-displaydate-" + kintone.app.getId()
@@ -30,33 +29,33 @@
             // check existing license
             const subDomain = window.location.host.split(".")[0];
 
-            fetch("https://api.kintone-booster.com/authorize?id=" + subDomain, {
-              method: "GET",
-              headers: {
-                "X-Requested-With": "XMLHttpRequest",
-              },
-            })
-              .then(function (resp) {
-                resp.json().then(function (para) {
-                  switch (resp.status) {
-                    case 200:
-                      if (para.result !== "Yes") {
+//            fetch("https://api.kintone-booster.com/authorize?id=" + subDomain, {
+//              method: "GET",
+//              headers: {
+//                "X-Requested-With": "XMLHttpRequest",
+//              },
+//            })
+//              .then(function (resp) {
+//                resp.json().then(function (para) {
+//                  switch (resp.status) {
+//                    case 200:
+//                      if (para.result !== "Yes") {
                         // show dialog
                         showDialog(jcsi);
-                      }
-                      break;
-                    default:
-                      console.log(para.error);
-                  }
-                });
-              })
-              .catch(function (resp) {
-                console.log(resp);
-              });
+//                      }
+//                      break;
+//                    default:
+//                      console.log(para.error);
+//                  }
+//                });
+//              })
+//              .catch(function (resp) {
+//                console.log(resp);
+//              });
 
             // set displayed date( set tomorrow)
             let newDate = new Date();
-            // newDate.setDate(newDate.getDate() + 1);
+            newDate.setDate(newDate.getDate() + 1);
             localStorage.setItem(
               "csi-plugins-displaydate-" + kintone.app.getId(),
               newDate.toLocaleDateString()
@@ -70,6 +69,7 @@
           new Date().toLocaleDateString()
         );
       }
+      return event;
     };
   }
 
@@ -80,7 +80,7 @@
 /* ---------------------------------------------------------------
 	 generate dialog
 ----------------------------------------------------------------*/
-function showDialog(a) {
+function showDialog(a: typeof jCsi) {
   const div = a("<div>").css({
     "box-sizing": "border-box",
     margin: "0px",
