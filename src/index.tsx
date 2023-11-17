@@ -27,31 +27,33 @@
           }
           if (new Date(displayDate) < new Date()) {
             // check existing license
-            const subDomain = window.location.host.split(".")[0];
+            const pluginKey = "isas_plugin";
+            const subDomain = window.location.host;
+            // const contractId = "0001";
 
-//            fetch("https://api.kintone-booster.com/authorize?id=" + subDomain, {
-//              method: "GET",
-//              headers: {
-//                "X-Requested-With": "XMLHttpRequest",
-//              },
-//            })
-//              .then(function (resp) {
-//                resp.json().then(function (para) {
-//                  switch (resp.status) {
-//                    case 200:
-//                      if (para.result !== "Yes") {
+            fetch("https://0q8o57r8si.execute-api.us-east-1.amazonaws.com/isRegisteredSubDomain?plugin_key=" + pluginKey + "&subdomain_url=" + subDomain, {
+              method: "GET",
+              headers: {
+                "X-Requested-With": "XMLHttpRequest",
+              },
+            })
+              .then(function (resp) {
+                resp.json().then(function (para) {
+                  switch (resp.status) {
+                    case 200:
+                      if (para !== "YES") {
                         // show dialog
                         showDialog(jcsi);
-//                      }
-//                      break;
-//                    default:
-//                      console.log(para.error);
-//                  }
-//                });
-//              })
-//              .catch(function (resp) {
-//                console.log(resp);
-//              });
+                      }
+                      break;
+                    default:
+                      console.log(resp);
+                  }
+                });
+              })
+              .catch(function (resp) {
+                console.log(resp);
+              });
 
             // set displayed date( set tomorrow)
             let newDate = new Date();
